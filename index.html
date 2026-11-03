@@ -31,7 +31,10 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background:
+                radial-gradient(circle at top right, rgba(7, 85, 54, 0.07), transparent 35%),
+                radial-gradient(circle at bottom left, rgba(197, 164, 91, 0.09), transparent 30%),
+                var(--bg-color);
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
@@ -39,9 +42,11 @@
             justify-content: space-between;
         }
 
+        /* الهوية الوطنية السعودية */
         header {
-            background-color: var(--card-bg);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            background: linear-gradient(115deg, #ffffff 0%, #f7fbf8 70%, #edf5ef 100%);
+            box-shadow: 0 4px 14px -2px rgba(0, 60, 35, 0.10);
+            border-bottom: 3px solid var(--accent-color);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -49,6 +54,16 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: var(--primary-color);
         }
 
         .brand {
@@ -86,10 +101,32 @@
         .card {
             background-color: var(--card-bg);
             border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 28px -5px rgba(0, 60, 35, 0.10);
             padding: 2.5rem;
             margin-bottom: 2rem;
             border-top: 5px solid var(--primary-color);
+            border-left: 1px solid rgba(197, 164, 91, 0.35);
+            border-right: 1px solid rgba(197, 164, 91, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(
+                90deg,
+                var(--accent-color),
+                var(--primary-color),
+                var(--secondary-color),
+                var(--primary-color),
+                var(--accent-color)
+            );
+            opacity: 0.75;
         }
 
         .screen {
@@ -146,20 +183,22 @@
             border-radius: 8px;
             font-size: 1rem;
             transition: var(--transition);
+            background-color: #fcfdfc;
         }
 
         .form-control:focus {
             border-color: var(--secondary-color);
             outline: none;
             box-shadow: 0 0 0 3px rgba(22, 132, 92, 0.15);
+            background-color: #ffffff;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), #0a6842);
             color: white;
             padding: 0.9rem 2rem;
-            border: none;
+            border: 1px solid rgba(197, 164, 91, 0.55);
             border-radius: 8px;
             font-size: 1.05rem;
             font-weight: 700;
@@ -167,11 +206,13 @@
             width: 100%;
             text-align: center;
             transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(7, 85, 54, 0.12);
         }
 
         .btn:hover {
-            background-color: #06432c;
+            background: linear-gradient(135deg, #06432c, var(--primary-color));
             transform: translateY(-2px);
+            box-shadow: 0 7px 16px rgba(7, 85, 54, 0.18);
         }
 
         .hack-alert-box {
@@ -278,16 +319,29 @@
         }
 
         .awareness-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: linear-gradient(145deg, #ffffff, #f4f8f5);
+            border: 1px solid #dce8df;
             padding: 1.5rem;
             border-radius: 10px;
             transition: var(--transition);
+            position: relative;
+        }
+
+        .awareness-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 0 10px 10px 0;
+            background: var(--accent-color);
+            opacity: 0.75;
         }
 
         .awareness-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 7px 18px rgba(0, 70, 40, 0.09);
             border-color: var(--secondary-color);
         }
 
@@ -318,6 +372,7 @@
             padding: 1.5rem;
             border-radius: 10px;
             margin-bottom: 1.5rem;
+            border-right: 4px solid var(--accent-color);
         }
 
         .options-list {
@@ -369,23 +424,37 @@
         }
 
         .btn-secondary {
-            background-color: #64748b;
+            background: linear-gradient(135deg, #64748b, #475569);
             width: auto;
             padding: 0.7rem 1.5rem;
+            border: 1px solid rgba(197, 164, 91, 0.35);
         }
 
         .btn-secondary:hover {
-            background-color: #475569;
+            background: linear-gradient(135deg, #475569, #334155);
         }
 
         footer {
-            background-color: var(--primary-color);
+            background: linear-gradient(115deg, #043b25, var(--primary-color), #0b6844);
             color: white;
             text-align: center;
             padding: 1.5rem;
             font-size: 0.95rem;
             font-weight: 500;
             margin-top: auto;
+            border-top: 3px solid var(--accent-color);
+            box-shadow: 0 -4px 16px rgba(0, 60, 35, 0.08);
+            position: relative;
+        }
+
+        footer::before {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 0 auto 12px;
+            border-radius: 10px;
         }
 
         @media (max-width: 768px) {
@@ -699,7 +768,7 @@
     <footer>
         جامعة الملك عبدالعزيز | كلية العلوم | قسم الكيمياء
         <br>
-        تمت هذه الدعوة بواسطة مها الردادي
+        تمت هذه الدعوة بواسطة مها الردادي | منى الزهراني
     </footer>
 
     <script>
