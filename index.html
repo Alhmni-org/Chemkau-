@@ -14,7 +14,7 @@
             --primary-color: #075536;
             --secondary-color: #16845c;
             --accent-color: #c5a45b;
-            --bg-color: #f8faf8;
+            --bg-color: #f4f7f4;
             --card-bg: #ffffff;
             --text-color: #1e293b;
             --text-light: #64748b;
@@ -32,20 +32,46 @@
 
         body {
             background:
-                radial-gradient(circle at top right, rgba(7, 85, 54, 0.07), transparent 35%),
-                radial-gradient(circle at bottom left, rgba(197, 164, 91, 0.09), transparent 30%),
+                radial-gradient(circle at 90% 5%, rgba(7, 85, 54, 0.08), transparent 28%),
+                radial-gradient(circle at 10% 80%, rgba(197, 164, 91, 0.09), transparent 25%),
                 var(--bg-color);
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
         }
 
-        /* الهوية الوطنية السعودية */
+        /* زخرفة هندسية مستوحاة من الهوية السعودية */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.035;
+            z-index: -1;
+            background-image:
+                repeating-linear-gradient(
+                    45deg,
+                    var(--primary-color) 0,
+                    var(--primary-color) 1px,
+                    transparent 1px,
+                    transparent 28px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    var(--accent-color) 0,
+                    var(--accent-color) 1px,
+                    transparent 1px,
+                    transparent 28px
+                );
+        }
+
+        /* الهيدر */
         header {
-            background: linear-gradient(115deg, #ffffff 0%, #f7fbf8 70%, #edf5ef 100%);
-            box-shadow: 0 4px 14px -2px rgba(0, 60, 35, 0.10);
+            background: linear-gradient(120deg, #ffffff 0%, #f8fbf8 60%, #edf5ef 100%);
+            box-shadow: 0 5px 22px rgba(0, 45, 25, 0.08);
             border-bottom: 3px solid var(--accent-color);
             padding: 1rem 2rem;
             display: flex;
@@ -54,6 +80,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            overflow: hidden;
         }
 
         header::before {
@@ -62,51 +89,66 @@
             right: 0;
             top: 0;
             bottom: 0;
-            width: 6px;
+            width: 7px;
             background: var(--primary-color);
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            left: -40px;
+            top: -60px;
+            width: 180px;
+            height: 180px;
+            border: 1px solid rgba(197, 164, 91, 0.20);
+            transform: rotate(45deg);
+            pointer-events: none;
         }
 
         .brand {
             display: flex;
             align-items: center;
             gap: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .brand img {
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             object-fit: contain;
+            filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.08));
         }
 
         .brand-text h1 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--primary-color);
-            font-weight: 700;
+            font-weight: 900;
         }
 
         .brand-text p {
             color: var(--text-light);
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             margin-top: 4px;
         }
 
         .container {
-            max-width: 900px;
-            margin: 2rem auto;
+            max-width: 950px;
+            margin: 2.5rem auto;
             padding: 0 1rem;
             width: 100%;
             flex: 1;
         }
 
+        /* البطاقات */
         .card {
             background-color: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 10px 28px -5px rgba(0, 60, 35, 0.10);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 50, 28, 0.08);
             padding: 2.5rem;
             margin-bottom: 2rem;
+            border: 1px solid rgba(197, 164, 91, 0.28);
             border-top: 5px solid var(--primary-color);
-            border-left: 1px solid rgba(197, 164, 91, 0.35);
-            border-right: 1px solid rgba(197, 164, 91, 0.35);
             position: relative;
             overflow: hidden;
         }
@@ -117,16 +159,27 @@
             top: 0;
             right: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(
                 90deg,
+                transparent,
                 var(--accent-color),
                 var(--primary-color),
-                var(--secondary-color),
-                var(--primary-color),
-                var(--accent-color)
+                var(--accent-color),
+                transparent
             );
-            opacity: 0.75;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            left: -55px;
+            bottom: -65px;
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgba(7, 85, 54, 0.07);
+            transform: rotate(45deg);
+            pointer-events: none;
         }
 
         .screen {
@@ -141,7 +194,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(12px);
             }
             to {
                 opacity: 1;
@@ -150,78 +203,89 @@
         }
 
         .hero-title {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
-            font-weight: 800;
+            font-weight: 900;
             text-align: center;
+            line-height: 1.5;
         }
 
         .hero-desc {
             text-align: center;
             color: var(--text-light);
             margin-bottom: 2rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
+            font-size: 1.08rem;
+            line-height: 1.9;
         }
 
+        /* الحقول */
         .form-group {
             margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
             color: var(--primary-color);
         }
 
         .form-control {
             width: 100%;
-            padding: 0.85rem 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
+            padding: 0.9rem 1rem;
+            border: 1.5px solid #dce6df;
+            border-radius: 10px;
             font-size: 1rem;
             transition: var(--transition);
-            background-color: #fcfdfc;
+            background: #fbfdfb;
         }
 
         .form-control:focus {
             border-color: var(--secondary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(22, 132, 92, 0.15);
-            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(22, 132, 92, 0.12);
+            background: #ffffff;
         }
 
+        /* الأزرار */
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color), #0a6842);
+            background: linear-gradient(135deg, #06432c, var(--primary-color), #0b6844);
             color: white;
-            padding: 0.9rem 2rem;
-            border: 1px solid rgba(197, 164, 91, 0.55);
-            border-radius: 8px;
+            padding: 0.95rem 2rem;
+            border: 1px solid rgba(197, 164, 91, 0.65);
+            border-radius: 10px;
             font-size: 1.05rem;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             width: 100%;
             text-align: center;
             transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(7, 85, 54, 0.12);
+            box-shadow: 0 6px 16px rgba(7, 85, 54, 0.15);
+            position: relative;
+            z-index: 1;
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #06432c, var(--primary-color));
-            transform: translateY(-2px);
-            box-shadow: 0 7px 16px rgba(7, 85, 54, 0.18);
+            background: linear-gradient(135deg, #043b25, #0a6842);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(7, 85, 54, 0.22);
         }
 
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* التنبيه الأمني */
         .hack-alert-box {
-            background-color: #fef2f2;
+            background: linear-gradient(145deg, #fffafa, #fef2f2);
             border: 2px solid var(--danger-color);
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
             text-align: center;
+            box-shadow: 0 6px 18px rgba(239, 68, 68, 0.06);
         }
 
         .hack-alert-box .unlock-icon {
@@ -233,20 +297,20 @@
             color: var(--danger-color);
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .hack-alert-box p {
             color: #7f1d1d;
             font-size: 1.1rem;
-            line-height: 1.6;
+            line-height: 1.8;
             margin-bottom: 1.5rem;
         }
 
         .stolen-data-card {
             background: white;
             border: 1px solid #fca5a5;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 1.2rem;
             margin: 1.5rem 0;
             text-align: right;
@@ -265,7 +329,7 @@
             display: flex;
             justify-content: space-between;
             gap: 12px;
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
             border-bottom: 1px solid #f1f5f9;
             font-size: 1rem;
             overflow-wrap: anywhere;
@@ -276,13 +340,13 @@
         }
 
         .data-label {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-light);
             flex-shrink: 0;
         }
 
         .data-value {
-            font-weight: 700;
+            font-weight: 800;
             color: var(--danger-color);
             overflow-wrap: anywhere;
         }
@@ -299,7 +363,7 @@
             margin-bottom: 0.8rem;
             color: var(--text-color);
             font-size: 1rem;
-            line-height: 1.5;
+            line-height: 1.7;
         }
 
         .tips-list li::before {
@@ -307,10 +371,11 @@
             position: absolute;
             right: 0;
             color: var(--success-color);
-            font-weight: bold;
+            font-weight: 900;
             font-size: 1.2rem;
         }
 
+        /* بطاقات التوعية */
         .awareness-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -321,27 +386,30 @@
         .awareness-card {
             background: linear-gradient(145deg, #ffffff, #f4f8f5);
             border: 1px solid #dce8df;
-            padding: 1.5rem;
-            border-radius: 10px;
+            padding: 1.6rem;
+            border-radius: 13px;
             transition: var(--transition);
             position: relative;
+            overflow: hidden;
         }
 
         .awareness-card::before {
             content: "";
             position: absolute;
-            top: 0;
             right: 0;
+            top: 0;
+            bottom: 0;
             width: 4px;
-            height: 100%;
-            border-radius: 0 10px 10px 0;
-            background: var(--accent-color);
-            opacity: 0.75;
+            background: linear-gradient(
+                to bottom,
+                var(--primary-color),
+                var(--accent-color)
+            );
         }
 
         .awareness-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 7px 18px rgba(0, 70, 40, 0.09);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 24px rgba(0, 70, 40, 0.10);
             border-color: var(--secondary-color);
         }
 
@@ -353,26 +421,28 @@
 
         .awareness-card h3 {
             font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             color: var(--primary-color);
+            font-weight: 800;
         }
 
         .awareness-card p {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-light);
-            line-height: 1.5;
+            line-height: 1.8;
         }
 
+        /* الاختبار */
         .quiz-container {
             margin-top: 1rem;
         }
 
         .question-box {
-            background: #f1f5f9;
+            background: linear-gradient(145deg, #f4f8f5, #edf4ef);
             padding: 1.5rem;
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 1.5rem;
-            border-right: 4px solid var(--accent-color);
+            border-right: 5px solid var(--accent-color);
         }
 
         .options-list {
@@ -382,24 +452,26 @@
 
         .options-list li {
             background: white;
-            padding: 0.85rem 1rem;
+            padding: 0.9rem 1rem;
             margin-bottom: 0.75rem;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
+            border-radius: 9px;
+            border: 1px solid #d6e1d9;
             cursor: pointer;
             transition: var(--transition);
         }
 
         .options-list li:hover {
-            background: #e2e8f0;
+            background: #eaf3ed;
             border-color: var(--primary-color);
+            transform: translateX(-2px);
         }
 
         .feedback {
             margin-top: 1rem;
             padding: 1rem;
-            border-radius: 8px;
+            border-radius: 9px;
             display: none;
+            line-height: 1.8;
         }
 
         .feedback.correct {
@@ -426,35 +498,63 @@
         .btn-secondary {
             background: linear-gradient(135deg, #64748b, #475569);
             width: auto;
-            padding: 0.7rem 1.5rem;
-            border: 1px solid rgba(197, 164, 91, 0.35);
+            padding: 0.75rem 1.5rem;
+            border: 1px solid rgba(197, 164, 91, 0.45);
         }
 
         .btn-secondary:hover {
             background: linear-gradient(135deg, #475569, #334155);
         }
 
+        /* الخاتمة */
+        #screen-5 .card {
+            background:
+                radial-gradient(circle at top, rgba(7, 85, 54, 0.04), transparent 50%),
+                #ffffff;
+        }
+
+        /* التذييل */
         footer {
-            background: linear-gradient(115deg, #043b25, var(--primary-color), #0b6844);
+            background:
+                linear-gradient(120deg, #032f1d, #075536 55%, #0a6842);
             color: white;
             text-align: center;
-            padding: 1.5rem;
+            padding: 1.8rem 1rem;
             font-size: 0.95rem;
             font-weight: 500;
             margin-top: auto;
-            border-top: 3px solid var(--accent-color);
-            box-shadow: 0 -4px 16px rgba(0, 60, 35, 0.08);
+            border-top: 4px solid var(--accent-color);
+            box-shadow: 0 -6px 22px rgba(0, 45, 25, 0.10);
             position: relative;
+            overflow: hidden;
         }
 
         footer::before {
             content: "";
+            position: absolute;
+            left: -35px;
+            top: -65px;
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            transform: rotate(45deg);
+        }
+
+        footer::after {
+            content: "";
+            position: absolute;
+            right: -35px;
+            bottom: -65px;
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgba(197, 164, 91, 0.18);
+            transform: rotate(45deg);
+        }
+
+        footer br {
             display: block;
-            width: 70px;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 0 auto 12px;
-            border-radius: 10px;
+            content: "";
+            margin: 0.5rem 0;
         }
 
         @media (max-width: 768px) {
@@ -470,12 +570,40 @@
                 padding: 1rem;
             }
 
+            .brand img {
+                width: 50px;
+                height: 50px;
+            }
+
             .brand-text h1 {
                 font-size: 0.95rem;
             }
 
+            .brand-text p {
+                font-size: 0.78rem;
+            }
+
             .nav-buttons {
                 flex-wrap: wrap;
+            }
+
+            .nav-buttons .btn {
+                width: 100%;
+            }
+
+            .hack-alert-box {
+                padding: 1.3rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
         }
     </style>
