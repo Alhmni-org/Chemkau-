@@ -6,99 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>جامعة الملك عبدالعزيز - كلية العلوم - قسم الكيمياء</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         :root {
-            --primary-color: #075536;
-            --secondary-color: #16845c;
-            --accent-color: #c5a45b;
-            --bg-color: #f8faf8;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-            --text-light: #64748b;
-            --danger-color: #ef4444;
-            --success-color: #10b981;
-            --transition: all 0.3s ease;
+            --primary: #006b4f;
+            --primary-dark: #004d39;
+            --secondary: #d6b66a;
+            --background: #f4f7f5;
+            --text: #26332e;
+            --white: #ffffff;
+            --danger: #b83232;
+            --success: #16804a;
         }
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Tajawal', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: var(--background);
+            color: var(--text);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
         header {
-            background-color: var(--card-bg);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .brand {
+            background: var(--white);
+            border-bottom: 4px solid var(--secondary);
+            padding: 18px 20px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+            gap: 18px;
+            text-align: right;
         }
 
-        .brand img {
-            width: 55px;
-            height: 55px;
+        .logo {
+            width: 85px;
+            height: 85px;
             object-fit: contain;
         }
 
-        .brand-text h1 {
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            font-weight: 700;
+        .header-text h1 {
+            color: var(--primary);
+            font-size: 23px;
+            margin: 0 0 6px;
+            font-weight: 800;
         }
 
-        .brand-text p {
-            color: var(--text-light);
-            font-size: 0.85rem;
-            margin-top: 4px;
+        .header-text p {
+            margin: 0;
+            font-size: 16px;
+            color: #65736c;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            width: 100%;
-            flex: 1;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border-top: 5px solid var(--primary-color);
+        main {
+            width: min(92%, 760px);
+            margin: 35px auto;
         }
 
         .screen {
             display: none;
+            background: var(--white);
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0, 60, 40, 0.08);
+            animation: fadeIn 0.4s ease;
         }
 
         .screen.active {
             display: block;
-            animation: fadeIn 0.5s ease-in-out;
         }
 
         @keyframes fadeIn {
@@ -112,301 +92,236 @@
             }
         }
 
-        .hero-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-weight: 800;
+        .icon-heading {
             text-align: center;
+            color: var(--primary);
+            font-size: 42px;
+            margin-bottom: 12px;
         }
 
-        .hero-desc {
+        h2 {
+            color: var(--primary);
             text-align: center;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
+            font-size: 27px;
+            margin: 10px 0 18px;
+        }
+
+        .intro {
+            text-align: center;
+            line-height: 1.9;
+            color: #58665f;
+            font-size: 17px;
+            margin-bottom: 25px;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 18px;
         }
 
-        .form-group label {
+        label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        .form-control {
+        input {
             width: 100%;
-            padding: 0.85rem 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            border-color: var(--secondary-color);
+            padding: 14px;
+            border: 1px solid #d6dfd9;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 16px;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(22, 132, 92, 0.15);
+            transition: border 0.2s;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.9rem 2rem;
+        input:focus {
+            border-color: var(--primary);
+        }
+
+        button {
             border: none;
-            border-radius: 8px;
-            font-size: 1.05rem;
+            border-radius: 10px;
+            padding: 14px 22px;
+            font-family: inherit;
+            font-size: 17px;
             font-weight: 700;
             cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .primary-btn {
             width: 100%;
-            text-align: center;
-            transition: var(--transition);
+            color: var(--white);
+            background: var(--primary);
+            margin-top: 10px;
         }
 
-        .btn:hover {
-            background-color: #06432c;
-            transform: translateY(-2px);
+        .primary-btn:hover {
+            background: var(--primary-dark);
         }
 
-        .hack-alert-box {
-            background-color: #fef2f2;
-            border: 2px solid var(--danger-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
+        .warning-box {
+            background: #fff4e5;
+            border-right: 5px solid #e5a13b;
+            border-radius: 10px;
+            padding: 18px;
+            line-height: 1.9;
+            margin: 20px 0;
         }
 
-        .hack-alert-box .unlock-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .warning-box h3 {
+            color: #9a5c0b;
+            margin-top: 0;
         }
 
-        .hack-alert-box h2 {
-            color: var(--danger-color);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
+        .success-box {
+            background: #eaf7ef;
+            border-right: 5px solid var(--success);
+            border-radius: 10px;
+            padding: 18px;
+            line-height: 1.9;
+            margin: 20px 0;
         }
 
-        .hack-alert-box p {
-            color: #7f1d1d;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .stolen-data-card {
-            background: white;
-            border: 1px solid #fca5a5;
-            border-radius: 8px;
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            text-align: right;
-        }
-
-        .stolen-data-card h3 {
-            color: var(--danger-color);
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .data-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f1f5f9;
-            font-size: 1rem;
+        .data-preview {
+            background: #f5f7f6;
+            border-radius: 10px;
+            padding: 15px;
+            line-height: 2;
             overflow-wrap: anywhere;
         }
 
-        .data-row:last-child {
-            border-bottom: none;
+        .data-preview p {
+            margin: 5px 0;
         }
 
-        .data-label {
-            font-weight: 600;
-            color: var(--text-light);
-            flex-shrink: 0;
+        .data-preview strong {
+            color: var(--primary);
         }
 
-        .data-value {
-            font-weight: 700;
-            color: var(--danger-color);
-            overflow-wrap: anywhere;
-        }
-
-        .tips-list {
-            list-style: none;
-            text-align: right;
-            margin-top: 1.5rem;
-        }
-
-        .tips-list li {
-            position: relative;
-            padding-right: 1.8rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-color);
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .tips-list li::before {
-            content: "✓";
-            position: absolute;
-            right: 0;
-            color: var(--success-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .awareness-grid {
+        .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
         }
 
-        .awareness-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 10px;
-            transition: var(--transition);
+        .card {
+            background: #f7faf8;
+            border: 1px solid #e4ebe6;
+            border-radius: 12px;
+            padding: 18px;
         }
 
-        .awareness-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-color: var(--secondary-color);
+        .card i {
+            font-size: 25px;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
 
-        .awareness-card i {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+        .card h3 {
+            color: var(--primary);
+            margin: 5px 0 8px;
         }
 
-        .awareness-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
+        .card p {
+            line-height: 1.8;
+            margin: 0;
+            color: #58665f;
         }
 
-        .awareness-card p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.5;
+        .question {
+            background: #f7faf8;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            line-height: 1.9;
         }
 
-        .quiz-container {
-            margin-top: 1rem;
+        .answer-option {
+            display: block;
+            width: 100%;
+            text-align: right;
+            background: #fff;
+            border: 1px solid #dce5df;
+            margin: 10px 0;
+            color: var(--text);
         }
 
-        .question-box {
-            background: #f1f5f9;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        .options-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .options-list li {
-            background: white;
-            padding: 0.85rem 1rem;
-            margin-bottom: 0.75rem;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .options-list li:hover {
-            background: #e2e8f0;
-            border-color: var(--primary-color);
+        .answer-option:hover {
+            border-color: var(--primary);
+            background: #f0f8f4;
         }
 
         .feedback {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 8px;
             display: none;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            line-height: 1.8;
         }
 
         .feedback.correct {
-            background-color: #d1fae5;
-            color: #065f46;
-            border: 1px solid #34d399;
             display: block;
+            background: #eaf7ef;
+            color: #176b3c;
         }
 
         .feedback.incorrect {
-            background-color: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #f87171;
             display: block;
+            background: #fff0f0;
+            color: #a52a2a;
         }
 
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 2rem;
+        .quote {
+            text-align: center;
+            font-size: 21px;
+            line-height: 2;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 15px;
         }
 
-        .btn-secondary {
-            background-color: #64748b;
-            width: auto;
-            padding: 0.7rem 1.5rem;
+        .next-btn {
+            background: var(--secondary);
+            color: #3d3219;
+            width: 100%;
+            margin-top: 15px;
         }
 
-        .btn-secondary:hover {
-            background-color: #475569;
+        .next-btn:hover {
+            background: #c8a654;
         }
 
         footer {
-            background-color: var(--primary-color);
-            color: white;
             text-align: center;
-            padding: 1.5rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-top: auto;
+            padding: 20px;
+            color: #77847d;
+            font-size: 14px;
+            line-height: 1.8;
         }
 
-        @media (max-width: 768px) {
-            .card {
-                padding: 1.5rem;
-            }
-
-            .hero-title {
-                font-size: 1.4rem;
-            }
-
+        @media (max-width: 600px) {
             header {
-                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
             }
 
-            .brand-text h1 {
-                font-size: 0.95rem;
+            .header-text {
+                text-align: center;
             }
 
-            .nav-buttons {
-                flex-wrap: wrap;
+            .screen {
+                padding: 22px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 23px;
             }
         }
     </style>
@@ -414,397 +329,357 @@
 
 <body>
 
-    <!-- الهيدر والشعار -->
-    <header>
-        <div class="brand">
-            <img src="logo.png.jpg" alt="شعار جامعة الملك عبدالعزيز">
-            <div class="brand-text">
-                <h1>جامعة الملك عبدالعزيز</h1>
-                <p>كلية العلوم | قسم الكيمياء</p>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-
-        <!-- الشاشة الأولى: نموذج التسجيل التجريبي -->
-        <div id="screen-1" class="screen active">
-            <div class="card">
-
-                <h2 class="hero-title">
-                    دعوة خاصة: الانضمام إلى ورشة «مهارات القيادة الرقمية والذكاء الاصطناعي»
-                </h2>
-
-                <p class="hero-desc">
-                    في إطار جهود قسم الكيمياء بكلية العلوم في تعزيز المهارات المعرفية والتطويرية،
-                    ندعوكم للمشاركة في الورشة التطويرية. يرجى إدخال بياناتكم لتأكيد المشاركة.
-                </p>
-
-                <form id="phishingForm" onsubmit="triggerTrap(event)">
-
-                    <div class="form-group">
-                        <label for="fullName">الاسم الكامل:</label>
-                        <input
-                            type="text"
-                            id="fullName"
-                            class="form-control"
-                            placeholder="أدخل اسمك الكامل"
-                            maxlength="100"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="universityNumber">الرقم الجامعي:</label>
-                        <input
-                            type="text"
-                            id="universityNumber"
-                            class="form-control"
-                            placeholder="أدخل رقمك الجامعي"
-                            inputmode="numeric"
-                            maxlength="20"
-                            pattern="[0-9]+"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">البريد الإلكتروني:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            class="form-control"
-                            placeholder="أدخل بريدك الإلكتروني"
-                            maxlength="150"
-                            required
-                        >
-                    </div>
-
-                    <button type="submit" class="btn">
-                        تأكيد التسجيل والمشاركة
-                    </button>
-
-                </form>
-
-            </div>
-        </div>
-
-        <!-- الشاشة الثانية: التوعية -->
-        <div id="screen-2" class="screen">
-            <div class="card">
-
-                <div class="hack-alert-box">
-
-                    <div class="unlock-icon">🔓</div>
-
-                    <h2>تنبيه أمني</h2>
-
-                    <p id="hackMessage">
-                        هذه محاكاة توعوية! لقد أدخلت بياناتك في صفحة تجريبية تحاكي أساليب التصيد الإلكتروني.
-                    </p>
-
-                    <div class="stolen-data-card">
-
-                        <h3>
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            البيانات المدخلة في المحاكاة:
-                        </h3>
-
-                        <div class="data-row">
-                            <span class="data-label">الاسم</span>
-                            <span class="data-value" id="displayUser">زائر</span>
-                        </div>
-
-                        <div class="data-row">
-                            <span class="data-label">الرقم الجامعي</span>
-                            <span class="data-value" id="displayUniversityNumber">---</span>
-                        </div>
-
-                        <div class="data-row">
-                            <span class="data-label">البريد الإلكتروني</span>
-                            <span class="data-value" id="displayEmail">---</span>
-                        </div>
-
-                    </div>
-
-                    <ul class="tips-list">
-                        <li>تأكد من مصدر أي رابط قبل فتحه أو إدخال بياناتك فيه.</li>
-                        <li>لا تكتب معلوماتك في صفحة لا تعرف الجهة المسؤولة عنها.</li>
-                        <li>لا تفترض أن وجود شعار الجامعة يعني أن الصفحة رسمية.</li>
-                        <li>إذا كان الرابط يستعجلك أو يغريك بعرض، فتحقق منه أولاً.</li>
-                    </ul>
-
-                    <p style="font-size:0.9rem; margin-top:1rem; color:#065f46;">
-                        ملاحظة: هذه تجربة توعوية فقط. لم يتم إرسال بياناتك أو حفظها في خادم أو قاعدة بيانات.
-                    </p>
-
-                </div>
-
-                <button class="btn" onclick="goToScreen(3)">
-                    تابع استكشاف الدليل التوعوي الكامل
-                </button>
-
-            </div>
-        </div>
-
-        <!-- الشاشة الثالثة: الدليل التوعوي -->
-        <div id="screen-3" class="screen">
-            <div class="card">
-
-                <h2 class="hero-title">دليل الحماية والتوعية الرقمية</h2>
-
-                <p class="hero-desc">
-                    تعرف على أساليب التصيد الإلكتروني وكيف تحمي بياناتك الشخصية والجامعية.
-                </p>
-
-                <div class="awareness-grid">
-
-                    <div class="awareness-card">
-                        <i class="fa-solid fa-fish-fins"></i>
-                        <h3>ما هو التصيد الإلكتروني؟</h3>
-                        <p>
-                            أسلوب احتيالي يهدف إلى سرقة البيانات الحساسة عبر انتحال صفة جهات رسمية موثوقة.
-                        </p>
-                    </div>
-
-                    <div class="awareness-card">
-                        <i class="fa-solid fa-link-slash"></i>
-                        <h3>الروابط المزيفة</h3>
-                        <p>
-                            تستخدم روابط تقلد المواقع الأصلية مع تغيير بسيط في الحروف لخداع المستخدم.
-                        </p>
-                    </div>
-
-                    <div class="awareness-card">
-                        <i class="fa-solid fa-masks-theater"></i>
-                        <h3>انتحال الهوية</h3>
-                        <p>
-                            استغلال أسماء الجامعات والمؤسسات الحكومية والبنوك لكسب الثقة السريعة.
-                        </p>
-                    </div>
-
-                    <div class="awareness-card">
-                        <i class="fa-solid fa-clock-rotate-left"></i>
-                        <h3>رسائل الاستعجال</h3>
-                        <p>
-                            الضغط النفسي بعبارات مثل «سيتم إيقاف حسابك» لدفعك للتصرف دون تفكير.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="nav-buttons">
-                    <button class="btn btn-secondary" onclick="goToScreen(2)">
-                        السابق
-                    </button>
-
-                    <button class="btn" onclick="goToScreen(4)">
-                        الانتقال للاختبار التفاعلي
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- الشاشة الرابعة: الاختبار -->
-        <div id="screen-4" class="screen">
-            <div class="card">
-
-                <h2 class="hero-title">اختبر جاهزيتك الرقمية</h2>
-
-                <p class="hero-desc">
-                    اختر التصرف السليم في الموقف التالي واكتشف مدى وعيك الرقمي.
-                </p>
-
-                <div class="quiz-container">
-
-                    <div class="question-box">
-
-                        <h3 style="margin-bottom:0.5rem; color:var(--primary-color);">
-                            الموقف: وصلتك رسالة تبدو وكأنها من الجامعة تطلب منك تحديث بياناتك فورًا عبر رابط مختصر، ما التصرف السليم؟
-                        </h3>
-
-                        <ul class="options-list">
-
-                            <li onclick="checkAnswer(this, false)">
-                                أ) أضغط على الرابط وأدخل بياناتي بسرعة.
-                            </li>
-
-                            <li onclick="checkAnswer(this, true)">
-                                ب) أتحقق من مصدر الرسالة وأدخل إلى الموقع الرسمي للجامعة بنفسي.
-                            </li>
-
-                            <li onclick="checkAnswer(this, false)">
-                                ج) أرسل بياناتي للمرسل للتأكد من هويته.
-                            </li>
-
-                        </ul>
-
-                        <div id="quiz-feedback" class="feedback"></div>
-
-                    </div>
-
-                </div>
-
-                <div class="nav-buttons">
-
-                    <button class="btn btn-secondary" onclick="goToScreen(3)">
-                        السابق
-                    </button>
-
-                    <button class="btn" onclick="goToScreen(5)">
-                        الخاتمة والرسالة التوعوية
-                    </button>
-
-                </div>
-
-            </div>
-        </div>
-
-        <!-- الشاشة الخامسة: الخاتمة -->
-        <div id="screen-5" class="screen">
-            <div class="card" style="text-align:center;">
-
-                <div style="font-size:3rem; color:var(--primary-color); margin-bottom:1rem;">
-                    <i class="fa-solid fa-award"></i>
-                </div>
-
-                <h2 class="hero-title">
-                    شكرًا لمشاركتك في التجربة التوعوية!
-                </h2>
-
-                <p class="hero-desc" style="
-                    font-size:1.2rem;
-                    font-weight:600;
-                    color:var(--text-color);
-                    margin:2rem 0;
-                    padding:1.5rem;
-                    background:#f8fafc;
-                    border-radius:10px;
-                    border-right:5px solid var(--primary-color);
-                ">
-                    «لا تجعل ثقتك بالمظهر تسبق تحققك من المصدر؛ فوعيك الرقمي هو خط دفاعك الأول».
-                </p>
-
-                <button class="btn" onclick="resetExperience()">
-                    إعادة التجربة من البداية
-                </button>
-
-            </div>
-        </div>
-
+<header>
+    <img src="logo.png.jpg" alt="شعار جامعة الملك عبدالعزيز" class="logo">
+
+    <div class="header-text">
+        <h1>جامعة الملك عبدالعزيز</h1>
+        <p>كلية العلوم | قسم الكيمياء</p>
     </div>
+</header>
 
-    <!-- التذييل -->
-    <footer>
-        جامعة الملك عبدالعزيز | كلية العلوم | قسم الكيمياء
-        <br>
-        تجربة توعوية تعليمية
-    </footer>
+<main>
 
-    <script>
+    <!-- الشاشة الأولى: الدعوة -->
+    <section class="screen active" id="screen1">
 
-        // التنقل بين الشاشات
-        function goToScreen(screenNumber) {
+        <div class="icon-heading">
+            <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
 
-            document.querySelectorAll('.screen').forEach(screen => {
-                screen.classList.remove('active');
-            });
+        <h2>دعوة للمشاركة في ورشة تدريبية</h2>
 
-            document.getElementById(`screen-${screenNumber}`).classList.add('active');
+        <p class="intro">
+            يسرّنا دعوتكم للمشاركة في ورشة
+            <strong>مهارات القيادة الرقمية والذكاء الاصطناعي</strong>.
+            نأمل تعبئة البيانات التالية لتأكيد المشاركة.
+        </p>
 
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        <form onsubmit="triggerTrap(event)">
+
+            <div class="form-group">
+                <label for="fullName">الاسم الكامل</label>
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="أدخل اسمك الكامل"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="universityNumber">الرقم الجامعي</label>
+                <input
+                    type="text"
+                    id="universityNumber"
+                    inputmode="numeric"
+                    pattern="[0-9]+"
+                    maxlength="20"
+                    placeholder="أدخل الرقم الجامعي"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="example@kau.edu.sa"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="primary-btn">
+                تأكيد التسجيل
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- الشاشة الثانية: التنبيه التوعوي -->
+    <section class="screen" id="screen2">
+
+        <div class="icon-heading" style="color: var(--danger);">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <h2 style="color: var(--danger);">توقف! هذه محاكاة توعوية</h2>
+
+        <p class="intro">
+            لقد وصلت الآن إلى مرحلة توعوية تحاكي أحد أساليب التصيد الإلكتروني.
+        </p>
+
+        <div class="warning-box">
+            <h3>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                انتبه قبل مشاركة بياناتك
+            </h3>
+
+            قد تبدو بعض الدعوات والرسائل الإلكترونية رسمية وموثوقة،
+            لكنها قد تُستخدم لمحاولة الحصول على بياناتك الشخصية أو الجامعية.
+        </div>
+
+        <div class="data-preview">
+            <p><strong>الاسم:</strong> <span id="shownName"></span></p>
+            <p><strong>الرقم الجامعي:</strong> <span id="shownNumber"></span></p>
+            <p><strong>البريد الإلكتروني:</strong> <span id="shownEmail"></span></p>
+        </div>
+
+        <div class="success-box">
+            <strong>للتوضيح:</strong>
+            هذه تجربة تعليمية فقط. البيانات التي أدخلتها لم تُرسل إلى أي جهة
+            ولم يتم حفظها أو تخزينها.
+        </div>
+
+        <p class="intro">
+            الهدف من هذه المحاكاة هو مساعدتك على اكتشاف محاولات التصيد
+            الإلكتروني والتعامل معها بحذر.
+        </p>
+
+        <button class="primary-btn" onclick="goToScreen(3)">
+            تعرّف على أساليب التصيد
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+    </section>
+
+
+    <!-- الشاشة الثالثة: التوعية -->
+    <section class="screen" id="screen3">
+
+        <div class="icon-heading">
+            <i class="fa-solid fa-user-shield"></i>
+        </div>
+
+        <h2>كيف تحمي نفسك من التصيد الإلكتروني؟</h2>
+
+        <p class="intro">
+            تعرّف على أبرز العلامات التي قد تساعدك في اكتشاف الرسائل المشبوهة.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <i class="fa-solid fa-link"></i>
+                <h3>الروابط المشبوهة</h3>
+                <p>
+                    لا تضغط على الروابط قبل التأكد من عنوان الموقع الإلكتروني
+                    ومصدر الرسالة.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-user-secret"></i>
+                <h3>انتحال الهوية</h3>
+                <p>
+                    قد ينتحل المحتال صفة جامعة أو جهة رسمية لكسب ثقتك
+                    والحصول على بياناتك.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>الاستعجال والضغط</h3>
+                <p>
+                    احذر الرسائل التي تطلب منك اتخاذ إجراء فوري
+                    أو تهددك بإيقاف حسابك.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-lock"></i>
+                <h3>حماية بياناتك</h3>
+                <p>
+                    لا تشارك كلمات المرور أو الرموز السرية أو البيانات
+                    الشخصية مع جهات غير موثوقة.
+                </p>
+            </div>
+
+        </div>
+
+        <button class="primary-btn" onclick="goToScreen(4)">
+            اختبر معلوماتك
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+    </section>
+
+
+    <!-- الشاشة الرابعة: الاختبار -->
+    <section class="screen" id="screen4">
+
+        <div class="icon-heading">
+            <i class="fa-solid fa-clipboard-question"></i>
+        </div>
+
+        <h2>اختبر معلوماتك</h2>
+
+        <p class="intro">
+            لنفترض أنك استقبلت رسالة إلكترونية تطلب منك تحديث بياناتك الجامعية
+            من خلال رابط غير معروف، فما التصرف الصحيح؟
+        </p>
+
+        <div class="question">
+
+            <button class="answer-option" onclick="checkAnswer(false)">
+                <i class="fa-solid fa-link"></i>
+                الضغط على الرابط وتحديث البيانات مباشرة.
+            </button>
+
+            <button class="answer-option" onclick="checkAnswer(true)">
+                <i class="fa-solid fa-shield-halved"></i>
+                التحقق من مصدر الرسالة والتواصل مع الجهة الرسمية.
+            </button>
+
+            <button class="answer-option" onclick="checkAnswer(false)">
+                <i class="fa-solid fa-share"></i>
+                إعادة إرسال الرسالة إلى الزملاء.
+            </button>
+
+            <div id="feedback" class="feedback"></div>
+
+        </div>
+
+        <button id="quizNext" class="primary-btn" style="display:none;" onclick="goToScreen(5)">
+            إنهاء التجربة
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+    </section>
+
+
+    <!-- الشاشة الخامسة: الختام -->
+    <section class="screen" id="screen5">
+
+        <div class="icon-heading">
+            <i class="fa-solid fa-award"></i>
+        </div>
+
+        <h2>أحسنت! وصلت إلى نهاية التجربة</h2>
+
+        <p class="quote">
+            «وعيك الرقمي هو خط دفاعك الأول،
+            فلا تجعل الثقة سببًا في كشف بياناتك».
+        </p>
+
+        <div class="success-box">
+            <h3>تذكّر دائمًا:</h3>
+            <ul>
+                <li>تحقق من مصدر الرسائل قبل التفاعل معها.</li>
+                <li>لا تشارك بياناتك الشخصية مع جهات مجهولة.</li>
+                <li>افحص الروابط قبل فتحها.</li>
+                <li>أبلغ عن الرسائل المشبوهة للجهات المختصة.</li>
+            </ul>
+        </div>
+
+        <p class="intro">
+            شكرًا لمشاركتك في هذه التجربة التوعوية.
+            كن واعيًا، وكن آمنًا رقميًا.
+        </p>
+
+        <button class="next-btn" onclick="resetExperience()">
+            <i class="fa-solid fa-rotate-right"></i>
+            إعادة التجربة
+        </button>
+
+    </section>
+
+</main>
+
+
+<footer>
+    جامعة الملك عبدالعزيز | كلية العلوم | قسم الكيمياء
+    <br>
+    تمت هذه الدعوة بواسطة مها الردادي
+</footer>
+
+
+<script>
+
+    function goToScreen(screenNumber) {
+
+        document.querySelectorAll('.screen').forEach(screen => {
+            screen.classList.remove('active');
+        });
+
+        document.getElementById('screen' + screenNumber).classList.add('active');
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+
+    function triggerTrap(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById('fullName').value.trim();
+        const number = document.getElementById('universityNumber').value.trim();
+        const email = document.getElementById('email').value.trim();
+
+        if (!name || !number || !email) {
+            return;
         }
 
-        // المحاكاة التوعوية المحلية
-        function triggerTrap(event) {
+        // عرض البيانات داخل المحاكاة فقط دون إرسالها أو تخزينها
+        document.getElementById('shownName').textContent = name;
+        document.getElementById('shownNumber').textContent = number;
+        document.getElementById('shownEmail').textContent = email;
 
-            event.preventDefault();
+        goToScreen(2);
+    }
 
-            const name = document.getElementById('fullName').value.trim();
-            const universityNumber = document.getElementById('universityNumber').value.trim();
-            const email = document.getElementById('email').value.trim();
 
-            // عرض البيانات محليًا في شاشة التوعية فقط
-            document.getElementById('displayUser').innerText = name;
-            document.getElementById('displayUniversityNumber').innerText = universityNumber;
-            document.getElementById('displayEmail').innerText = email;
+    function checkAnswer(isCorrect) {
 
-            document.getElementById('hackMessage').innerText =
-                `هذه محاكاة توعوية يا ${name}! لقد أدخلت بياناتك في صفحة تجريبية تحاكي أساليب التصيد الإلكتروني. لو كان الهجوم حقيقيًا، لربما تعرضت بياناتك للخطر.`;
+        const feedback = document.getElementById('feedback');
+        const nextButton = document.getElementById('quizNext');
 
-            goToScreen(2);
+        if (isCorrect) {
 
-            // لا يتم إرسال البيانات إلى أي خادم
-            // لا يتم تخزين البيانات في قاعدة بيانات
+            feedback.className = 'feedback correct';
+
+            feedback.innerHTML =
+                '<strong><i class="fa-solid fa-circle-check"></i> إجابة صحيحة!</strong><br>' +
+                'التصرف الصحيح هو التحقق من مصدر الرسالة والتواصل مع الجهة الرسمية قبل مشاركة أي بيانات.';
+
+        } else {
+
+            feedback.className = 'feedback incorrect';
+
+            feedback.innerHTML =
+                '<strong><i class="fa-solid fa-circle-xmark"></i> إجابة غير صحيحة.</strong><br>' +
+                'لا تتفاعل مع الروابط المجهولة. تحقق دائمًا من مصدر الرسالة عبر القنوات الرسمية.';
+
         }
 
-        // فحص إجابة الاختبار
-        function checkAnswer(element, isCorrect) {
+        nextButton.style.display = 'block';
 
-            const feedback = document.getElementById('quiz-feedback');
+    }
 
-            const options = element.parentElement.querySelectorAll('li');
 
-            options.forEach(opt => {
-                opt.style.pointerEvents = 'none';
-            });
+    function resetExperience() {
 
-            if (isCorrect) {
+        document.getElementById('fullName').value = '';
+        document.getElementById('universityNumber').value = '';
+        document.getElementById('email').value = '';
 
-                element.style.backgroundColor = '#d1fae5';
-                element.style.borderColor = '#10b981';
+        document.getElementById('feedback').className = 'feedback';
+        document.getElementById('feedback').textContent = '';
 
-                feedback.className = 'feedback correct';
+        document.getElementById('quizNext').style.display = 'none';
 
-                feedback.innerHTML =
-                    '<strong>إجابة صحيحة وموفقة!</strong> تحقق من مصدر الرسائل عبر القنوات الرسمية ولا تشارك بياناتك الحساسة عبر الروابط.';
+        goToScreen(1);
 
-            } else {
+    }
 
-                element.style.backgroundColor = '#fee2e2';
-                element.style.borderColor = '#ef4444';
-
-                feedback.className = 'feedback incorrect';
-
-                feedback.innerHTML =
-                    '<strong>إجابة غير صحيحة.</strong> لا تضغط على الروابط المشبوهة، وتواصل مع الجهة الرسمية عبر قنواتها المعتمدة.';
-
-            }
-        }
-
-        // إعادة التجربة من البداية
-        function resetExperience() {
-
-            document.querySelectorAll('.options-list li').forEach(opt => {
-
-                opt.style.pointerEvents = 'auto';
-                opt.style.backgroundColor = 'white';
-                opt.style.borderColor = '#cbd5e1';
-
-            });
-
-            document.getElementById('quiz-feedback').className = 'feedback';
-            document.getElementById('quiz-feedback').innerHTML = '';
-
-            document.getElementById('displayUser').innerText = 'زائر';
-            document.getElementById('displayUniversityNumber').innerText = '---';
-            document.getElementById('displayEmail').innerText = '---';
-
-            document.getElementById('hackMessage').innerText =
-                'هذه محاكاة توعوية! لقد أدخلت بياناتك في صفحة تجريبية تحاكي أساليب التصيد الإلكتروني.';
-
-            document.getElementById('fullName').value = '';
-            document.getElementById('universityNumber').value = '';
-            document.getElementById('email').value = '';
-
-            goToScreen(1);
-        }
-
-    </script>
+</script>
 
 </body>
 </html>
